@@ -1,0 +1,29 @@
+.breadcrumbsContainer {
+  --ifm-breadcrumb-size-multiplier: 0.8;
+  margin-bottom: 0.8rem;
+}
+
+.breadcrumbs {
+  margin-top: 60px;
+}
+
+.breadcrumbs__item {
+  .breadcrumbs__link {
+    color: var(--text-3);
+  }
+
+  &--active {
+    .breadcrumbs__link {
+      color: var(--text-5);
+    }
+  }
+
+  &:after {
+    background: transparent;
+    border-right: 2px solid var(--icon-2);
+    border-bottom: 2px solid var(--icon-2);
+    transform: rotate(-45deg);
+    width: 8px;
+    height: 8px;
+  }
+}

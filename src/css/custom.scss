@@ -1,0 +1,178 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+
+@import './markdown.module';
+@import '../components/navbar/navbar.module';
+@import '../components/menu/menu.module';
+@import '../theme/DocBreadcrumbs/styles.module';
+@import '../theme/Footer/styles.module';
+
+@font-face {
+  font-family: 'StyreneALC Regular';
+  src: url('/static/font/styrene-lc-font/StyreneALC-Regular.otf')
+    format('opentype');
+}
+
+@font-face {
+  font-family: 'StyreneALC Bold';
+  src: url('/static/font/styrene-lc-font/StyreneALC-Bold.otf')
+    format('opentype');
+}
+
+@font-face {
+  font-family: 'StyreneALC Medium';
+  src: url('/static/font/styrene-lc-font/StyreneALC-Medium.otf')
+    format('opentype');
+}
+
+:root {
+  --ifm-font-family-base: 'StyreneALC Regular';
+  --ifm-font-family-base-bold: 'StyreneALC Bold';
+  --ifm-font-family-base-medium: 'StyreneALC Medium';
+  --ifm-color-primary: #bff589;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --ifm-font-color-base: #f8faf6;
+  --ifm-background-color: #212423;
+  --ifm-navbar-background-color: #212423;
+  --ifm-footer-background-color: #212423;
+  --ifm-color-primary-contrast-background: #212423;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --black: #212423;
+  --text-2: #5f615d;
+  --text-3: #a5a8a3;
+  --text-4: #cfd1cc;
+  --text-5: #f8faf6;
+  --border-2: #5f615d;
+  --border-3: #b9b9b9;
+  --icon-2: #5f615d;
+
+  //font-size
+  --font-size-tiny: 12px;
+  --font-size-small: 14px;
+  --font-size-base: 16px;
+  --font-size-medium: 20px;
+  --font-size-large: 24px;
+  --font-size-xlarge: 32px;
+  --font-size-xxlarge: 40px;
+  --font-size-xxxlarge: 48px;
+
+  //line-height
+  --line-height-tiny: 16px;
+  --line-height-small: 20px;
+  --line-height-base: 24px;
+  --line-height-medium: 24px;
+  --line-height-large: 32px;
+  --line-height-xlarge: 40px;
+  --line-height-xxlarge: 44px;
+  --line-height-xxxlarge: 52px;
+
+  //font-size fluid
+  --font-size-base-fluid: clamp(0.875rem, 0.84rem + 0.16vw, 1rem);
+  --font-size-medium-fluid: clamp(1rem, 0.93rem + 0.32vw, 1.25rem);
+  --font-size-large-fluid: clamp(1.25rem, 1.18rem + 0.32vw, 1.5rem);
+  --font-size-xlarge-fluid: clamp(2rem, 1.85rem + 0.65vw, 2.5rem);
+  --font-size-xxxlarge-fluid: clamp(2rem, 1.71rem + 1.29vw, 3rem);
+
+  //line-height fluid
+  --line-height-base-fluid: clamp(1.25rem, 1.18rem + 0.32vw, 1.5rem);
+  --line-height-medium-fluid: clamp(1.5rem, 1.43rem + 0.32vw, 1.75rem);
+  --line-height-large-fluid: clamp(1.75rem, 1.68rem + 0.32vw, 2rem);
+  --line-height-xlarge-fluid: clamp(2.5rem, 2.43rem + 0.32vw, 2.75rem);
+  --line-height-xxxlarge-fluid: clamp(2.5rem, 2.28rem + 0.97vw, 3.25rem);
+}
+
+.col--3 {
+  border-left: 1px solid var(--border-2);
+  padding: 0;
+}
+
+main {
+  .padding-top--md {
+    padding-top: 0 !important;
+  }
+}
+
+.linkedin-logo {
+  height: 40px;
+  width: 40px;
+  margin-right: 12px;
+  border: 1px solid #f8faf61a;
+  border-radius: 50%;
+  content: url('/static/img/logo-linkedin.svg');
+  transition: border 0.2s ease-out;
+
+  &:hover {
+    border-color: var(--border-2);
+  }
+
+  @media screen and (min-width: 997px) {
+    margin-left: 60px;
+  }
+}
+
+.instagram-logo {
+  height: 40px;
+  width: 40px;
+  margin-right: 12px;
+  border: 1px solid #f8faf61a;
+  border-radius: 50%;
+  content: url('/static/img/logo-instagram.svg');
+  transition: border 0.2s ease-out;
+
+  &:hover {
+    border-color: var(--border-2);
+  }
+}
+
+.twitter-logo {
+  height: 40px;
+  width: 40px;
+  border: 1px solid #f8faf61a;
+  border-radius: 50%;
+  content: url('/static/img/logo-twitter.svg');
+  transition: border 0.2s ease-out;
+
+  &:hover {
+    border-color: var(--border-2);
+  }
+}
+
+.main-wrapper {
+  flex-direction: row !important;
+}
+
+.link {
+  position: relative;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0px;
+    left: 0;
+    background-color: var(--ifm-color-primary);
+    transition: width 0.2s ease-out;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:hover:before {
+    width: 100%;
+  }
+}

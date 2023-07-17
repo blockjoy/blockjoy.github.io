@@ -1,0 +1,173 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar {
+  width: 0;
+
+  & > div {
+    padding-top: 0;
+  }
+
+  @media screen and (min-width: 997px) {
+    width: var(--doc-sidebar-width);
+  }
+}
+
+.breadcrumb {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  grid-column: 1 / span 6;
+  color: var(--text-3);
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 767px) {
+    margin-bottom: 60px;
+    grid-column: 2 / span 2;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 16px;
+  padding: 60px 20px;
+
+  @media screen and (min-width: 767px) {
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 16px;
+  }
+
+  @media screen and (min-width: 997px) {
+    max-width: 1600px;
+  }
+}
+
+.title {
+  color: var(--ifm-color-primary);
+  grid-column: 1 / span 6;
+  font-size: var(--font-size-xlarge-fluid);
+  line-height: var(--line-height-xlarge-fluid);
+  font-family: var(--ifm-font-family-base-bold);
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 767px) {
+    margin-bottom: 32px;
+    grid-column: 2 / span 5;
+  }
+}
+
+.documentation {
+  grid-column: 1 / span 6;
+  color: var(--text-5);
+  margin-bottom: 48px;
+
+  @media screen and (min-width: 767px) {
+    grid-column: 2 / span 5;
+    margin-bottom: 100px;
+  }
+}
+
+.documentation__title {
+  font-size: var(--font-size-xxxlarge-fluid);
+  line-height: var(--line-height-xxxlarge-fluid);
+  margin-bottom: 32px;
+}
+
+.documentation__intro {
+  font-size: var(--font-size-medium-fluid);
+  line-height: var(--line-height-medium-fluid);
+  margin-bottom: 24px;
+}
+
+.documentation__description {
+  font-size: var(--font-size-base-fluid);
+  line-height: var(--line-height-base-fluid);
+  color: #cfd1cc;
+}
+
+.documentation__img {
+  grid-column: 1 / span 6;
+  margin-bottom: 48px;
+
+  @media screen and (min-width: 767px) {
+    grid-column: 7 / span 5;
+    margin-bottom: 100px;
+  }
+}
+
+.featured-posts__col-one {
+  grid-column: 1 / span 6;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 767px) {
+    grid-column: 2 / span 5;
+    margin-bottom: 100px;
+  }
+}
+
+.featured-posts__col-two {
+  grid-column: 1 / span 6;
+  margin-bottom: 80px;
+
+  @media screen and (min-width: 767px) {
+    grid-column: 7 / span 5;
+    margin-bottom: 100px;
+  }
+}
+
+.suggested__title {
+  grid-column: 1 / span 6;
+  font-size: var(--font-size-large-fluid);
+  line-height: var(--line-height-large-fluid);
+  color: var(--text-5);
+  margin-bottom: 16px;
+
+  & > span {
+    font-family: var(--ifm-font-family-base-bold);
+  }
+
+  @media screen and (min-width: 767px) {
+    grid-column: 2 / span 7;
+  }
+}
+
+.suggested__description {
+  grid-column: 1 / span 6;
+  font-size: var(--font-size-base-fluid);
+  line-height: var(--line-height-base-fluid);
+  color: var(--text-3);
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 767px) {
+    grid-column: 2 / span 7;
+  }
+}
+
+.suggested__articles {
+  grid-column: 1 / span 6;
+
+  @media screen and (min-width: 767px) {
+    grid-column: 2 / span 10;
+  }
+}
