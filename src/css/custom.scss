@@ -9,6 +9,7 @@
 @import './markdown.module';
 @import '../components/navbar/navbar.module';
 @import '../components/menu/menu.module';
+@import '../components/Pagination/pagination.module';
 @import '../theme/DocBreadcrumbs/styles.module';
 @import '../theme/Footer/styles.module';
 
@@ -100,6 +101,10 @@
 main {
   .padding-top--md {
     padding-top: 0 !important;
+  }
+
+  .padding-bottom--lg {
+    padding-bottom: 0 !important;
   }
 }
 
