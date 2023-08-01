@@ -22,7 +22,14 @@ export const CustomCodeBlock: FC<Props> = ({ codes }) => {
     () => codes.find((code) => code.language === currentLanguage),
     [codes, currentLanguage],
   );
-  const options = useMemo(() => codes.map(({ language }) => language), [codes]);
+  const languageOptions = useMemo(
+    () => codes.map(({ language }) => language),
+    [codes],
+  );
+  const isCodeShorten = useMemo(
+    () => currentCode?.codeShorten && isShorten,
+    [currentCode, isShorten],
+  );
 
   return (
     <div className={style.wrapper}>
@@ -34,9 +41,9 @@ export const CustomCodeBlock: FC<Props> = ({ codes }) => {
             setCurrentLanguage(e.currentTarget.value);
           }}
         >
-          {options.map((option) => (
-            <option value={option} key={option}>
-              {option}
+          {languageOptions.map((language) => (
+            <option value={language} key={language}>
+              {language}
             </option>
           ))}
         </select>
@@ -59,7 +66,7 @@ export const CustomCodeBlock: FC<Props> = ({ codes }) => {
       <>
         {currentCode ? (
           <>
-            {isShorten && currentCode.codeShorten ? (
+            {isCodeShorten ? (
               <div className={style.base}>
                 <CodeBlock
                   text={currentCode.codeShorten}
@@ -81,9 +88,7 @@ export const CustomCodeBlock: FC<Props> = ({ codes }) => {
               </div>
             )}
           </>
-        ) : (
-          <>No code</>
-        )}
+        ) : null}
       </>
     </div>
   );

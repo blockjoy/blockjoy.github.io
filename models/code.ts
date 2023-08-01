@@ -1,5 +1,7 @@
+import { Language } from './language';
+
 export interface Code {
   code: string;
-  language: string;
-  codeShorten: string;
+  codeShorten?: string;
+  language: Language;
 }
