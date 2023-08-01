@@ -29,8 +29,6 @@ export const TableBodyRowWithDropdown: FC<Props> = ({ rows, counter = -1 }) => {
     setCount(count + 1);
   }, []);
 
-  console.log(count);
-
   return (
     <>
       {rows.map((row, rowIndex) => (
@@ -46,7 +44,11 @@ export const TableBodyRowWithDropdown: FC<Props> = ({ rows, counter = -1 }) => {
                     onClick={
                       cell.isDropdown ? () => setIsOpen(!isOpen) : undefined
                     }
-                    style={{ paddingLeft: `${12 + count * 20}px` }}
+                    style={
+                      i == 0
+                        ? { paddingLeft: `${12 + count * 20}px` }
+                        : undefined
+                    }
                   >
                     {cell.isDropdown ? (
                       <span
