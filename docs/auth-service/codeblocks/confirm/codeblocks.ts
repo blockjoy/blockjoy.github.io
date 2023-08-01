@@ -1,3 +1,5 @@
+import { Code } from '@site/models/code';
+
 const typescriptCode = `import React, { useEffect, useState } from 'react'
 import { grpc } from "@improbable-eng/grpc-web"
 import { AuthServiceClient } from "api/sdk/ts/blockjoy/v1/auth_pb_service"
@@ -136,16 +138,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
   Ok(())
 }`;
 
-export const codes = [
-  {
-    code: typescriptCode,
-    codeShorten: typescriptCodeShorten,
-    language: 'typescript',
-  },
+export const codes: Code[] = [
   {
     code: goCode,
     codeShorten: goCodeShorten,
     language: 'go',
+  },
+  {
+    code: typescriptCode,
+    codeShorten: typescriptCodeShorten,
+    language: 'typescript',
   },
   {
     code: javascriptCode,

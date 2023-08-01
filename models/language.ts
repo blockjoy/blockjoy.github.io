@@ -1,1 +1,1 @@
-type Language = 'typescript' | 'javascript' | 'go' | 'rust' | 'python';
+export type Language = 'typescript' | 'javascript' | 'go' | 'rust' | 'python';

@@ -3,12 +3,8 @@ import { CodeBlock, dracula } from 'react-code-blocks';
 import style from './style.module.scss';
 import CodeIcon from '@site/static/img/code-icon.svg';
 import Copy from '@site/static/img/copy.svg';
-
-interface Code {
-  code: string;
-  language: string;
-  codeShorten: string;
-}
+import { Code } from '@site/models/code';
+import { Language } from '@site/models/language';
 
 interface Props {
   codes: Code[];
