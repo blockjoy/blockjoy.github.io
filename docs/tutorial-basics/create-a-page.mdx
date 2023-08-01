@@ -5,8 +5,14 @@ sidebar_position: 1
 import { Introduction } from '@site/src/components/Introduction/Introduction.tsx';
 import { ImageWithDescription } from '@site/src/components/ImageWithDescription/ImageWithDescription.tsx';
 import { BlogList } from '@site/src/components/BlogList/BlogList.tsx';
+import { VersionType } from '@site/src/components/VersionType/VersionType.tsx';
+import { ApiMethod } from '@site/src/components/ApiMethod/ApiMethod.tsx';
 
 # Create a Page
+
+<VersionType>Version: 2.4.0</VersionType>
+
+<ApiMethod method="retuns" name="BlockchainServiceGetResponse" />
 
 <Introduction>
     We believe that people should be able to easily run their own web3
@@ -29,8 +35,8 @@ Add **Markdown or React** files to `src/pages` to create a **standalone page**:
 Create a file at `src/pages/my-react-page.js`:
 
 ```jsx title="src/pages/my-react-page.js"
-import React from 'react';
-import Layout from '@theme/Layout';
+import React from 'react'; import
+Layout from '@theme/Layout';
 
 export default function MyReactPage() {
     return (
@@ -41,7 +47,9 @@ export default function MyReactPage() {
     );
 
     Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+
 }
+
 ```
 
 <ImageWithDescription

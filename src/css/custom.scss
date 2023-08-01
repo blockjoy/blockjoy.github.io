@@ -45,6 +45,9 @@
   --ifm-code-font-size: 95%;
   --ifm-font-color-base: #f8faf6;
   --ifm-background-color: #212423;
+  --ifm-color-warning-contrast-background: #e9ad39;
+  --ifm-color-danger-contrast-background: rgb(225, 50, 56);
+  --ifm-color-secondary-contrast-background: rgba(248, 250, 246, 0.2);
   --ifm-navbar-background-color: #212423;
   --ifm-footer-background-color: #212423;
   --ifm-color-primary-contrast-background: #212423;
@@ -57,6 +60,7 @@
   --border-2: #5f615d;
   --border-3: #b9b9b9;
   --icon-2: #5f615d;
+  --background-note: #e9ad39;
 
   //font-size
   --font-size-tiny: 12px;
@@ -93,12 +97,61 @@
   --line-height-xxxlarge-fluid: clamp(2.5rem, 2.28rem + 0.97vw, 3.25rem);
 }
 
+body,
+button,
+input {
+  font-feature-settings: 'clig' off, 'liga' off;
+}
+
 .col--3 {
   border-left: 1px solid var(--border-2);
   padding: 0;
 }
 
+.alert--secondary {
+  color: var(--text-5);
+}
+
+aside {
+  width: 33% !important;
+  border-right: none !important;
+}
+
 main {
+  justify-content: center;
+
+  & > .container {
+    margin: 0;
+    height: 100%;
+  }
+
+  & > .row {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 16px;
+    padding: 0 20px;
+
+    @media screen and (min-width: 767px) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-column-gap: 24px;
+
+      & > div:first-of-type {
+        grid-column: 2 / span 8;
+        max-width: none !important;
+      }
+
+      & > div:last-of-type {
+        grid-column: 10 / span 3;
+        max-width: none !important;
+      }
+    }
+
+    @media screen and (min-width: 997px) {
+      max-width: 1600px;
+    }
+  }
+
   .padding-top--md {
     padding-top: 0 !important;
   }

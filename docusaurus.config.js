@@ -99,7 +99,6 @@ const config = {
             position: 'right',
             label: 'Documents',
           },
-          { to: '/blog', label: 'Blog', position: 'right' },
           {
             href: 'https://app.blockjoy.com/register',
             label: 'Sign Up',
@@ -138,10 +137,6 @@ const config = {
               {
                 label: 'Documents',
                 href: '/docs/intro',
-              },
-              {
-                label: 'Blog',
-                to: '/blog',
               },
               {
                 label: 'Sign up',

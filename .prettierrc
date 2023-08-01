@@ -12,7 +12,9 @@
         "*.json",
         "*.yml",
         ".prettierrc",
-        "*.scss"
+        "*.scss",
+        "*.mdx",
+        "*.md"
       ],
       "options": {
         "tabWidth": 2

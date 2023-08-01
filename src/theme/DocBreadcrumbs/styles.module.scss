@@ -5,21 +5,25 @@
 
 .breadcrumbs {
   margin-top: 60px;
+  margin-left: -12px;
 }
 
 .breadcrumbs__item {
   .breadcrumbs__link {
     color: var(--text-3);
+    padding: 12px;
+    cursor: pointer;
   }
 
   &--active {
     .breadcrumbs__link {
       color: var(--text-5);
+      background-color: transparent;
     }
   }
 
   &:after {
-    background: transparent;
+    background: transparent !important;
     border-right: 2px solid var(--icon-2);
     border-bottom: 2px solid var(--icon-2);
     transform: rotate(-45deg);

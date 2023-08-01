@@ -93,8 +93,8 @@ export default function DocBreadcrumbs(): JSX.Element | null {
         itemType="https://schema.org/BreadcrumbList"
       >
         <BreadcrumbsItem active={false} index={0} addMicrodata={false}>
-          <BreadcrumbsItemLink href={'/'} isLast={false}>
-            Home
+          <BreadcrumbsItemLink href={'/docs/client-libraries'} isLast={false}>
+            Documents
           </BreadcrumbsItemLink>
         </BreadcrumbsItem>
         {breadcrumbs.map((item, idx) => {

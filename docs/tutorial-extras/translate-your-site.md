@@ -12,10 +12,10 @@ Modify `docusaurus.config.js` to add support for the `fr` locale:
 
 ```js title="docusaurus.config.js"
 module.exports = {
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr'],
-  },
+    i18n: {
+        defaultLocale: 'en',
+        locales: ['en', 'fr'],
+    },
 };
 ```
 
@@ -47,6 +47,30 @@ In development, you can only use one locale at a same time.
 
 :::
 
+:::note
+
+In development, you can only use one locale at a same time.
+
+:::
+
+:::tip
+
+In development, you can only use one locale at a same time.
+
+:::
+
+:::info
+
+In development, you can only use one locale at a same time.
+
+:::
+
+:::danger
+
+In development, you can only use one locale at a same time.
+
+:::
+
 ## Add a Locale Dropdown
 
 To navigate seamlessly across languages, add a locale dropdown.
@@ -55,17 +79,17 @@ Modify the `docusaurus.config.js` file:
 
 ```js title="docusaurus.config.js"
 module.exports = {
-  themeConfig: {
-    navbar: {
-      items: [
-        // highlight-start
-        {
-          type: 'localeDropdown',
+    themeConfig: {
+        navbar: {
+            items: [
+                // highlight-start
+                {
+                    type: 'localeDropdown',
+                },
+                // highlight-end
+            ],
         },
-        // highlight-end
-      ],
     },
-  },
 };
 ```
 

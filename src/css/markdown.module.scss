@@ -75,11 +75,17 @@
   code {
     background: #272a29;
     color: var(--text-5);
+    border-radius: 0;
+  }
+
+  pre {
+    border-radius: 0;
   }
 
   blockquote {
     border-left: 1px solid #f8faf6;
     padding: 0 20px;
+    margin-bottom: 24px;
 
     p {
       font-size: var(--font-size-base-fluid);
@@ -95,7 +101,11 @@
     overflow-x: auto;
     font-size: var(--font-size-base-fluid);
     line-height: var(--line-height-base-fluid);
-    margin-bottom: 16px;
+    margin-bottom: 52px;
+
+    @media screen and (min-width: 767px) {
+      margin-bottom: 80px;
+    }
 
     thead {
       background-color: #373939;
@@ -132,16 +142,26 @@
         background-color: #272a29;
       }
 
+      td:last-of-type {
+        width: 100%;
+      }
+
       td {
-        width: max-content;
         padding: 12px;
-        text-align: center;
         color: var(--text-4);
         border: none;
         border-right: 1px solid var(--border-2);
+        min-width: max-content;
+        max-width: 1000px;
+        white-space: break-spaces;
+        min-width: max-content;
 
         &:last-of-type {
           border-right: none;
+        }
+
+        > p:last-of-type {
+          margin-bottom: 0;
         }
       }
     }
