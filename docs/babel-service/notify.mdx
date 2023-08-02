@@ -10,6 +10,8 @@ import { TableHead } from '@site/src/components/Table/TableHead.tsx';
 import { TableBody } from '@site/src/components/Table/TableBody.tsx';
 import { TableBodyRow } from '@site/src/components/Table/TableBodyRow.tsx';
 import { TableBodyRowWithDropdown } from '@site/src/components/Table/TableBodyRowWithDropdown.tsx';
+import { codes } from './codeblocks/codeblocks';
+import { CustomCodeBlock } from '@site/src/components/CustomCodeBlock/CustomCodeBlock.tsx';
 
 # Notify
 
@@ -83,6 +85,8 @@ Message to send when a new version of node image is released
     </TableBody>
 
 </Table>
+
+<CustomCodeBlock codes={codes} />
 
 <ApiMethod method="returns" name="BabelServiceNotifyResponse" />
 
