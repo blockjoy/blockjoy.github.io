@@ -9,7 +9,8 @@ import { Table } from '@site/src/components/Table/Table.tsx';
 import { TableHead } from '@site/src/components/Table/TableHead.tsx';
 import { TableBody } from '@site/src/components/Table/TableBody.tsx';
 import { TableBodyRow } from '@site/src/components/Table/TableBodyRow.tsx';
-import { TableBodyRowWithDropdown } from '@site/src/components/Table/TableBodyRowWithDropdown.tsx';
+import { codes } from './codeblocks/get/codeblocks';
+import { CustomCodeBlock } from '@site/src/components/CustomCodeBlock/CustomCodeBlock.tsx';
 
 # Get
 
@@ -25,6 +26,8 @@ Returns a single blockchain as identified by its id.
 | ----- | ------ | ----------- |
 | id    | string |             |
 
+<CustomCodeBlock codes={codes} />
+
 <ApiMethod method="returns" name="BlockchainServiceGetResponse" />
 
 <VersionType>blockjoy.v1.BlockchainServiceGetResponse</VersionType>
@@ -32,471 +35,198 @@ Returns a single blockchain as identified by its id.
 <Table>
   <TableHead items={['Field', 'Type', 'Description']} />
   <TableBody>
-    <TableBodyRowWithDropdown
-      rows={[
-        {
-          cells: [
-            {
-              name: 'blockchain',
-              isDropdown: true,
-            },
-            { name: 'Blockchain' },
-            {
-              name: '',
-            },
-          ],
-          newRow: [
-            {
-              cells: [
-                { name: 'created_at', isDropdown: true },
-                { name: 'Timestamp' },
-                { name: '' },
-              ],
-              newRow: [
-                {
-                  cells: [
-                    { name: 'nanos' },
-                    { name: 'int (32 bit)' },
-                    { name: '' },
-                  ],
-                },
-                {
-                  cells: [
-                    { name: 'node_version' },
-                    { name: 'int (64 bit)' },
-                    { name: '' },
-                  ],
-                },
-              ],
-            },
-            {
-              cells: [
-                { name: 'description' },
-                { name: 'string' },
-                { name: '' },
-              ],
-            },
-            {
-              cells: [{ name: 'id' }, { name: 'string' }, { name: '' }],
-            },
-            {
-              cells: [
-                { name: 'networks', isDropdown: true },
-                {
-                  name: (
-                    <TableCellWithOption
-                      text="BlockchainNetwork"
-                      info="repeated"
-                    />
-                  ),
-                },
-                { name: '' },
-              ],
-              newRow: [
-                {
-                  cells: [{ name: 'name' }, { name: 'string' }, { name: '' }],
-                },
-                {
-                  cells: [
-                    { name: 'net_type', isDropdown: true },
-                    { name: 'BlockchainNetworkType' },
-                    { name: '' },
-                  ],
-                  newRow: [
-                    {
-                      cells: [
-                        { name: 'BLOCKCHAIN_NETWORK_TYPE_UNSPECIFIED' },
-                        { name: '= 0' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'BLOCKCHAIN_NETWORK_TYPE_DEV	' },
-                        { name: '= 1' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'BLOCKCHAIN_NETWORK_TYPE_DEV' },
-                        { name: '= 2' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'BLOCKCHAIN_NETWORK_TYPE_MAIN' },
-                        { name: '= 3' },
-                        { name: '' },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  cells: [{ name: 'url' }, { name: 'string' }, { name: '' }],
-                },
-              ],
-            },
-            {
-              cells: [
-                { name: 'node_types', isDropdown: true },
-                {
-                  name: (
-                    <TableCellWithOption
-                      text="SupportedNodeType"
-                      info="repeated"
-                    />
-                  ),
-                },
-                {
-                  name: 'This list contains all the possible node types that can be created for this kind of blockchain.',
-                },
-              ],
-              newRow: [
-                {
-                  cells: [
-                    { name: 'node_type', isDropdown: true },
-                    { name: 'NodeType' },
-                    { name: '' },
-                  ],
-                  newRow: [
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_UNSPECIFIED' },
-                        { name: '= 0' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_MINER' },
-                        { name: '= 1' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_ETL' },
-                        { name: '= 2' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_VALIDATOR' },
-                        { name: '= 3' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_API' },
-                        { name: '= 4' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_ORACLE' },
-                        { name: '= 5' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_RELAY' },
-                        { name: '= 6' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_EXECUTION' },
-                        { name: '= 7' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_BEACON' },
-                        { name: '= 8' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_MEVBOOST' },
-                        { name: '= 9' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_NODE' },
-                        { name: '= 10' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_FULLNODE' },
-                        { name: '= 11' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        { name: 'NODE_TYPE_LIGHTNODE' },
-                        { name: '= 12' },
-                        { name: '' },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  cells: [
-                    { name: 'properties', isDropdown: true },
-                    {
-                      name: (
-                        <TableCellWithOption
-                          text="SupportedNodeProperty"
-                          info="repeated"
-                        />
-                      ),
-                    },
-                    { name: '' },
-                  ],
-                  newRow: [
-                    {
-                      cells: [
-                        {
-                          name: (
-                            <TableCellWithOption
-                              text="default"
-                              warning="optional"
-                            />
-                          ),
-                        },
-                        { name: 'string' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        {
-                          name: 'disabled',
-                        },
-                        { name: 'boolean' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        {
-                          name: 'name',
-                        },
-                        { name: 'string' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        {
-                          name: 'required',
-                        },
-                        { name: 'boolean' },
-                        { name: '' },
-                      ],
-                    },
-                    {
-                      cells: [
-                        {
-                          name: 'ui_type',
-                          isDropdown: true,
-                        },
-                        { name: 'UiType' },
-                        { name: '' },
-                      ],
-                      newRow: [
-                        {
-                          cells: [
-                            {
-                              name: 'UI_TYPE_UNSPECIFIED',
-                            },
-                            { name: '= 0' },
-                            { name: '' },
-                          ],
-                        },
-                        {
-                          cells: [
-                            {
-                              name: 'UI_TYPE_SWITCH',
-                            },
-                            { name: '= 1' },
-                            { name: '' },
-                          ],
-                        },
-                        {
-                          cells: [
-                            {
-                              name: 'UI_TYPE_PASSWORD',
-                            },
-                            { name: '= 2' },
-                            { name: '' },
-                          ],
-                        },
-                        {
-                          cells: [
-                            {
-                              name: 'UI_TYPE_TEXT',
-                            },
-                            { name: '= 3' },
-                            { name: '' },
-                          ],
-                        },
-                        {
-                          cells: [
-                            {
-                              name: 'UI_TYPE_FILE_UPLOAD',
-                            },
-                            { name: '= 4' },
-                            { name: '' },
-                          ],
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  cells: [
-                    { name: 'version' },
-                    {
-                      name: 'string',
-                    },
-                    { name: '' },
-                  ],
-                },
-              ],
-            },
-            {
-              cells: [
-                {
-                  name: (
-                    <TableCellWithOption
-                      text="project_url"
-                      warning="optional"
-                    />
-                  ),
-                },
-                { name: 'string' },
-                { name: '' },
-              ],
-            },
-            {
-              cells: [
-                {
-                  name: (
-                    <TableCellWithOption text="repo_url" warning="optional" />
-                  ),
-                },
-                { name: 'string' },
-                { name: '' },
-              ],
-            },
-            {
-              cells: [
-                { name: 'status', isDropdown: true },
-                { name: 'BlockchainStatus' },
-                { name: '' },
-              ],
-              newRow: [
-                {
-                  cells: [
-                    { name: 'BLOCKCHAIN_STATUS_UNSPECIFIED' },
-                    { name: '= 0' },
-                    { name: '' },
-                  ],
-                },
-                {
-                  cells: [
-                    { name: 'BLOCKCHAIN_STATUS_DEVELOPMENT' },
-                    { name: '= 1' },
-                    { name: '' },
-                  ],
-                },
-                {
-                  cells: [
-                    { name: 'BLOCKCHAIN_STATUS_ALPHA' },
-                    { name: '= 2' },
-                    { name: '' },
-                  ],
-                },
-                {
-                  cells: [
-                    { name: 'BLOCKCHAIN_STATUS_BETA' },
-                    { name: '= 3' },
-                    { name: '' },
-                  ],
-                },
-                {
-                  cells: [
-                    { name: 'BLOCKCHAIN_STATUS_PRODUCTION' },
-                    { name: '= 4' },
-                    { name: '' },
-                  ],
-                },
-                {
-                  cells: [
-                    { name: 'BLOCKCHAIN_STATUS_DELETED' },
-                    { name: '= 5' },
-                    { name: '' },
-                  ],
-                },
-              ],
-            },
-            {
-              cells: [
-                {
-                  name: (
-                    <TableCellWithOption text="updated_at" warning="optional" />
-                  ),
-                  isDropdown: true,
-                },
-                { name: 'Timestamp' },
-                { name: '' },
-              ],
-              newRow: [
-                {
-                  cells: [
-                    { name: 'nanos' },
-                    { name: 'int (32 bit)' },
-                    { name: '' },
-                  ],
-                },
-                {
-                  cells: [
-                    { name: 'seconds' },
-                    { name: 'int (64 bit)' },
-                    { name: '' },
-                  ],
-                },
-              ],
-            },
-            {
-              cells: [
-                {
-                  name: (
-                    <TableCellWithOption text="version" warning="optional" />
-                  ),
-                },
-                { name: 'string' },
-                { name: '' },
-              ],
-            },
-          ],
-        },
-      ]}
-    />
+    <TableBodyRow items={['blockchain', 'Blockchain', '']}>
+      <TableBodyRow items={['created_at', 'Timestamp', '']} rowCounter={1}>
+        <TableBodyRow items={['nanos', 'int (32 bit)', '']} rowCounter={2} />
+        <TableBodyRow items={['seconds', 'int (64 bit)', '']} rowCounter={2} />
+      </TableBodyRow>
+      <TableBodyRow items={['description', 'string', '']} rowCounter={1} />
+      <TableBodyRow items={['id', 'string', '']} rowCounter={1} />
+      <TableBodyRow items={['name', 'string', '']} rowCounter={1} />
+      <TableBodyRow
+        items={[
+          'networks',
+          <TableCellWithOption text="BlockchainNetwork" info="repeated" />,
+          '',
+        ]}
+        rowCounter={1}
+      >
+        <TableBodyRow items={['name', 'string', '']} rowCounter={2} />
+        <TableBodyRow
+          items={['net_type', 'BlockchainNetworkType', '']}
+          rowCounter={2}
+        >
+          <TableBodyRow
+            items={['BLOCKCHAIN_NETWORK_TYPE_UNSPECIFIED', '= 0', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow
+            items={['BLOCKCHAIN_NETWORK_TYPE_DEV', '= 1', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow
+            items={['BLOCKCHAIN_NETWORK_TYPE_TEST', '= 2', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow
+            items={['BLOCKCHAIN_NETWORK_TYPE_MAIN', '= 3', '']}
+            rowCounter={3}
+          />
+        </TableBodyRow>
+        <TableBodyRow items={['url', 'string', '']} rowCounter={2} />
+      </TableBodyRow>
+      <TableBodyRow
+        items={[
+          'nodes_types',
+          <TableCellWithOption text="SupportedNodeType" info="repeated" />,
+          'This list contains all the possible node types that can be created for this kind of blockchain.',
+        ]}
+        rowCounter={1}
+      >
+        <TableBodyRow items={['node_type', 'NodeType', '']} rowCounter={2}>
+          <TableBodyRow
+            items={['NODE_TYPE_UNSPECIFIED', '= 0', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow items={['NODE_TYPE_MINER', '= 1', '']} rowCounter={3} />
+          <TableBodyRow items={['NODE_TYPE_ETL', '= 2', '']} rowCounter={3} />
+          <TableBodyRow
+            items={['NODE_TYPE_VALIDATOR', '= 3', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow items={['NODE_TYPE_API', '= 4', '']} rowCounter={3} />
+          <TableBodyRow
+            items={['NODE_TYPE_ORACLE', '= 5', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow items={['NODE_TYPE_RELAY', '= 6', '']} rowCounter={3} />
+          <TableBodyRow
+            items={['NODE_TYPE_EXECUTION', '= 7', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow
+            items={['NODE_TYPE_BEACON', '= 8', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow
+            items={['NODE_TYPE_MEVBOOST', '= 9', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow items={['NODE_TYPE_NODE', '= 10', '']} rowCounter={3} />
+          <TableBodyRow
+            items={['NODE_TYPE_FULLNODE', '= 11', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow
+            items={['NODE_TYPE_LIGHTNODE', '= 12', '']}
+            rowCounter={3}
+          />
+        </TableBodyRow>
+        <TableBodyRow
+          items={[
+            'properties',
+            <TableCellWithOption
+              text="SupportedNodeProperty"
+              info="repeated"
+            />,
+            '',
+          ]}
+          rowCounter={2}
+        >
+          <TableBodyRow
+            items={[
+              <TableCellWithOption text="default" warning="optional" />,
+              'string',
+              '',
+            ]}
+            rowCounter={3}
+          />
+          <TableBodyRow items={['disabled', 'boolean', '']} rowCounter={3} />
+          <TableBodyRow items={['name', 'string', '']} rowCounter={3} />
+          <TableBodyRow items={['required', 'boolean', '']} rowCounter={3} />
+          <TableBodyRow items={['ui_type', 'UiType', '']} rowCounter={3}>
+            <TableBodyRow
+              items={['UI_TYPE_UNSPECIFIED', '= 0', '']}
+              rowCounter={4}
+            />
+            <TableBodyRow
+              items={['UI_TYPE_SWITCH', '= 1', '']}
+              rowCounter={4}
+            />
+            <TableBodyRow
+              items={['UI_TYPE_PASSWORD', '= 2', '']}
+              rowCounter={4}
+            />
+            <TableBodyRow items={['UI_TYPE_TEXT', '= 3', '']} rowCounter={4} />
+            <TableBodyRow
+              items={['UI_TYPE_FILE_UPLOAD', '= 4', '']}
+              rowCounter={4}
+            />
+          </TableBodyRow>
+        </TableBodyRow>
+        <TableBodyRow items={['version', 'string', '']} rowCounter={2} />
+      </TableBodyRow>
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="project_url" warning="optional" />,
+          'string',
+          '',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="repo_url" warning="optional" />,
+          'string',
+          '',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow items={['status', 'BlockchainStatus', '']} rowCounter={1}>
+        <TableBodyRow
+          items={['BLOCKCHAIN_STATUS_UNSPECIFIED', '= 0', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['BLOCKCHAIN_STATUS_DEVELOPMENT', '= 1', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['BLOCKCHAIN_STATUS_ALPHA', '= 2', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['BLOCKCHAIN_STATUS_BETA', '= 3', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['BLOCKCHAIN_STATUS_PRODUCTION', '= 4', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['BLOCKCHAIN_STATUS_DELETED', '= 5', '']}
+          rowCounter={2}
+        />
+      </TableBodyRow>
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="updated_at" warning="optional" />,
+          'Timestamp',
+          '',
+        ]}
+        rowCounter={1}
+      >
+        <TableBodyRow items={['nanos', 'int (32 bit)', '']} rowCounter={2} />
+        <TableBodyRow items={['seconds', 'int (64 bit)', '']} rowCounter={2} />
+      </TableBodyRow>
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="version" warning="optional" />,
+          'string',
+          '',
+        ]}
+        rowCounter={1}
+      />
+    </TableBodyRow>
   </TableBody>
 </Table>
