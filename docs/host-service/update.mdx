@@ -1,0 +1,37 @@
+---
+sidebar_position: 6
+---
+
+import { VersionType } from '@site/src/components/VersionType/VersionType.tsx';
+import { ApiMethod } from '@site/src/components/ApiMethod/ApiMethod.tsx';
+import { CustomCodeBlock } from '@site/src/components/CustomCodeBlock/CustomCodeBlock.tsx';
+import { codes } from './codeblocks/update/codeblocks';
+import { TableCellWithOption } from '@site/src/components/TableCellWithOption/TableCellWithOption.tsx';
+import { Table } from '@site/src/components/Table/Table.tsx';
+import { TableHead } from '@site/src/components/Table/TableHead.tsx';
+import { TableBody } from '@site/src/components/Table/TableBody.tsx';
+import { TableBodyRow } from '@site/src/components/Table/TableBodyRow.tsx';
+
+# Update
+
+Update a single host
+
+<ApiMethod method="rpc" name="Update" />
+
+<ApiMethod method="requests" name="HostServiceUpdateRequest" />
+
+<VersionType>blockjoy.v1.HostServiceUpdateRequest</VersionType>
+
+| Field                                                        | Type   | Description                   |
+| ------------------------------------------------------------ | ------ | ----------------------------- |
+| id                                                           | string |                               |
+| <TableCellWithOption text="name" warning="optional" />       | string |                               |
+| <TableCellWithOption text="os" warning="optional" />         | string | optional string location = 4; |
+| <TableCellWithOption text="os_version" warning="optional" /> | string |                               |
+| <TableCellWithOption text="version" warning="optional" />    | string |                               |
+
+<CustomCodeBlock codes={codes} />
+
+<ApiMethod method="returns" name="HostServiceUpdateResponse" />
+
+<VersionType>blockjoy.v1.HostServiceUpdateResponse</VersionType>

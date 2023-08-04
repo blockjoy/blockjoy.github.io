@@ -1,0 +1,756 @@
+---
+sidebar_position: 2
+---
+
+import { VersionType } from '@site/src/components/VersionType/VersionType.tsx';
+import { ApiMethod } from '@site/src/components/ApiMethod/ApiMethod.tsx';
+import { TableCellWithOption } from '@site/src/components/TableCellWithOption/TableCellWithOption.tsx';
+import { Table } from '@site/src/components/Table/Table.tsx';
+import { TableHead } from '@site/src/components/Table/TableHead.tsx';
+import { TableBody } from '@site/src/components/Table/TableBody.tsx';
+import { TableBodyRow } from '@site/src/components/Table/TableBodyRow.tsx';
+import { codes } from './codeblocks/create/codeblocks';
+import { CustomCodeBlock } from '@site/src/components/CustomCodeBlock/CustomCodeBlock.tsx';
+
+# Create
+
+<ApiMethod method="rpc" name="Create" />
+
+Creates a new command in the database and sends it to the apropriate instance of blockvisor.
+
+<ApiMethod method="requests" name="CommandServiceCreateRequest" />
+
+<VersionType>blockjoy.v1.CommandServiceCreateRequest</VersionType>
+
+This request is used to create new commands. They will be stored in the database and then emitted over MQTT to the clients that have subscribed.
+
+<Table>
+  <TableHead items={['Field', 'Type', 'Description']} />
+  <TableBody>
+    <TableBodyRow
+      items={[
+        <TableCellWithOption text="restart_host" warningInFront="oneof" />,
+        'RestartHostCommand',
+        'This variant will cause a new RestartHostCommand to be created.',
+      ]}
+    >
+      <TableBodyRow items={['host_id', 'string', '']} rowCounter={1} />
+    </TableBodyRow>
+    <TableBodyRow
+      items={[
+        <TableCellWithOption text="restart_node" warningInFront="oneof" />,
+        'RestartNodeCommand',
+        <>
+          <p>
+            <strong>Field:</strong> This variant will cause a new
+            RestartNodeCommand to be created.
+          </p>
+          <p>
+            <strong>RestartNodeCommand:</strong> Implies that the node
+            identified by node_id should be restarted. If the node is already
+            stopped, it should just be started.
+          </p>
+        </>,
+      ]}
+    >
+      <TableBodyRow items={['node_id', 'string', '']} rowCounter={1} />
+    </TableBodyRow>
+    <TableBodyRow
+      items={[
+        <TableCellWithOption text="start_host" warningInFront="oneof" />,
+        'StartHostCommand',
+        'This variant will cause a new StartHostCommand to be created.',
+      ]}
+    >
+      <TableBodyRow items={['host_id', 'string', '']} rowCounter={1} />
+    </TableBodyRow>
+    <TableBodyRow
+      items={[
+        <TableCellWithOption text="start_node" warningInFront="oneof" />,
+        'StartNodeCommand',
+        <>
+          <p>
+            <strong>Field:</strong> This variant will cause a new
+            StartNodeCommand to be created.
+          </p>
+          <p>
+            <strong>StartNodeCommand:</strong> Implies that the node identified
+            by node_id should be started. If the node is already running, this
+            message should be ignored.
+          </p>
+        </>,
+      ]}
+    >
+      <TableBodyRow
+        items={['node_id', 'string', 'The node to be started.']}
+        rowCounter={1}
+      />
+    </TableBodyRow>
+    <TableBodyRow
+      items={[
+        <TableCellWithOption text="stop_host" warningInFront="oneof" />,
+        'StopHostCommand',
+        'This variant will cause a new StopHostCommand to be created.',
+      ]}
+    >
+      <TableBodyRow
+        items={['host_id', 'string', 'The node to be started.']}
+        rowCounter={1}
+      />
+    </TableBodyRow>
+    <TableBodyRow
+      items={[
+        <TableCellWithOption text="stop_node" warningInFront="oneof" />,
+        'StopNodeCommand',
+        <>
+          <p>
+            <strong>Field:</strong> This variant will cause a new
+            StopNodeCommand to be created.
+          </p>
+          <p>
+            <strong>StopNodeCommand:</strong> Implies that the node identified
+            by node_id should be stopped. If the node is already stopped, this
+            message should be ignored.
+          </p>
+        </>,
+      ]}
+    >
+      <TableBodyRow
+        items={['node_id', 'string', 'The node to be stoped.']}
+        rowCounter={1}
+      />
+    </TableBodyRow>
+  </TableBody>
+</Table>
+
+<CustomCodeBlock codes={codes} />
+
+<ApiMethod method="returns" name="CommandServiceCreateResponse" />
+
+<VersionType>blockjoy.v1.CommandServiceCreateResponse</VersionType>
+
+<Table>
+  <TableHead items={['Field', 'Type', 'Description']} />
+  <TableBody>
+    <TableBodyRow items={['command', 'Command', '']}>
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="exit_code" warning="optional" />,
+          'int (32 bit)',
+          'A command may have an exit code.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          'id',
+          'string',
+          'Each command has a unique id that identifies it.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="response" warning="optional" />,
+          'string',
+          'A command may have an outcome message.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow items={['command', '[oneof]', '']} rowCounter={1}>
+        <TableBodyRow
+          items={[
+            <TableCellWithOption text="host" warningInFront="oneof" />,
+            'HostCommand',
+            '',
+          ]}
+          rowCounter={2}
+        >
+          <TableBodyRow
+            items={[
+              'host_id',
+              'string',
+              'We don’t do this yet, but it is here for forwards compatibility.',
+            ]}
+            rowCounter={3}
+          />
+        </TableBodyRow>
+        <TableBodyRow
+          items={[
+            <TableCellWithOption text="node" warningInFront="oneof" />,
+            'NodeCommand',
+            '',
+          ]}
+          rowCounter={2}
+        >
+          <TableBodyRow
+            items={['api_command_id', 'string', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow items={['created_at', 'Timestamp', '']} rowCounter={3}>
+            <TableBodyRow
+              items={['nanos', 'int (32 bit)', '']}
+              rowCounter={4}
+            />
+            <TableBodyRow
+              items={['seconds', 'int (64 bit)', '']}
+              rowCounter={4}
+            />
+          </TableBodyRow>
+          <TableBodyRow items={['host_id', 'string', '']} rowCounter={3} />
+          <TableBodyRow items={['node_id', 'string', '']} rowCounter={3} />
+          <TableBodyRow items={['command', '[oneof]', '']} rowCounter={3}>
+            <TableBodyRow
+              items={[
+                <TableCellWithOption text="create" warningInFront="oneof" />,
+                'NodeCreate',
+                '',
+              ]}
+              rowCounter={4}
+            >
+              <TableBodyRow
+                items={['blockchain', 'string', '']}
+                rowCounter={5}
+              />
+              <TableBodyRow items={['gateway', 'string', '']} rowCounter={5} />
+              <TableBodyRow
+                items={['image', 'ContainerImage', '']}
+                rowCounter={5}
+              >
+                <TableBodyRow
+                  items={[
+                    'node_type',
+                    'NodeType',
+                    'snake_cased name of the node type',
+                  ]}
+                  rowCounter={6}
+                >
+                  <TableBodyRow
+                    items={['NODE_TYPE_UNSPECIFIED', '= 0', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_MINER', '= 1', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_ETL', '= 2', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_VALIDATOR', '= 3', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_API', '= 4', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_ORACLE', '= 5', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_RELAY', '= 6', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_EXECUTION', '= 7', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_BEACON', '= 8', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_MEVBOOST', '= 9', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_NODE', '= 10', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_FULLNODE', '= 11', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_LIGHTNODE', '= 12', '']}
+                    rowCounter={7}
+                  />
+                </TableBodyRow>
+                <TableBodyRow
+                  items={[
+                    'node_version',
+                    'string',
+                    'semantic version string of the node type version',
+                  ]}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={[
+                    'protocol',
+                    'string',
+                    'snake_cased name of the blockchain',
+                  ]}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={[
+                    'status',
+                    'ContainerImageStatus',
+                    'Define config status',
+                  ]}
+                  rowCounter={6}
+                >
+                  <TableBodyRow
+                    items={['CONTAINER_IMAGE_STATUS_UNSPECIFIED', '= 0', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['CONTAINER_IMAGE_STATUS_DEVELOPMENT', '= 1', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['CONTAINER_IMAGE_STATUS_UNSTABLE', '= 2', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['CONTAINER_IMAGE_STATUS_STABLE', '= 3', '']}
+                    rowCounter={7}
+                  />
+                </TableBodyRow>
+                <TableBodyRow items={['ip', 'string', '']} rowCounter={6} />
+                <TableBodyRow items={['name', 'string', '']} rowCounter={6} />
+              </TableBodyRow>
+              <TableBodyRow items={['ip', 'string', '']} rowCounter={5} />
+              <TableBodyRow items={['name', 'string', '']} rowCounter={5} />
+              <TableBodyRow
+                items={['node_type', 'NodeType', '']}
+                rowCounter={5}
+              >
+                <TableBodyRow
+                  items={['NODE_TYPE_UNSPECIFIED', '= 0', '']}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={['NODE_TYPE_MINER', '= 1', '']}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={['NODE_TYPE_ETL', '= 2', '']}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={['NODE_TYPE_VALIDATOR', '= 3', '']}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={['NODE_TYPE_API', '= 4', '']}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={['NODE_TYPE_ORACLE', '= 5', '']}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={['NODE_TYPE_RELAY', '= 6', '']}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={['NODE_TYPE_EXECUTION', '= 7', '']}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={['NODE_TYPE_BEACON', '= 8', '']}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={['NODE_TYPE_MEVBOOST', '= 9', '']}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={['NODE_TYPE_NODE', '= 10', '']}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={['NODE_TYPE_FULLNODE', '= 11', '']}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={['NODE_TYPE_LIGHTNODE', '= 12', '']}
+                  rowCounter={6}
+                />
+              </TableBodyRow>
+              <TableBodyRow
+                items={[
+                  'properties',
+                  <TableCellWithOption text="Parameter" info="repeated" />,
+                  '',
+                ]}
+                rowCounter={5}
+              >
+                <TableBodyRow items={['name', 'string', '']} rowCounter={6} />
+                <TableBodyRow items={['value', 'string', '']} rowCounter={6} />
+              </TableBodyRow>
+              <TableBodyRow
+                items={[
+                  'rules',
+                  <TableCellWithOption text="Rule" info="repeated" />,
+                  '',
+                ]}
+                rowCounter={5}
+              >
+                <TableBodyRow items={['action', 'Action', '']} rowCounter={6}>
+                  <TableBodyRow
+                    items={['ACTION_UNSPECIFIED', '= 0', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['ACTION_ALLOW', '= 1', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['ACTION_DENY', '= 2', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['ACTION_REJECT', '= 3', '']}
+                    rowCounter={7}
+                  />
+                </TableBodyRow>
+                <TableBodyRow
+                  items={['direction', 'Direction', '']}
+                  rowCounter={6}
+                >
+                  <TableBodyRow
+                    items={['DIRECTION_UNSPECIFIED', '= 0', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['DIRECTION_OUT', '= 1', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['DIRECTION_IN', '= 2', '']}
+                    rowCounter={7}
+                  />
+                </TableBodyRow>
+                <TableBodyRow
+                  items={[
+                    <TableCellWithOption text="ips" warning="optional" />,
+                    'string',
+                    '',
+                  ]}
+                  rowCounter={6}
+                />
+                <TableBodyRow items={['name', 'string', '']} rowCounter={6} />
+                <TableBodyRow
+                  items={[
+                    'ports',
+                    <TableCellWithOption
+                      text="unsigned int (32 bit)"
+                      info="repeated"
+                    />,
+                    '',
+                  ]}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={[
+                    <TableCellWithOption text="protocol" warning="optional" />,
+                    'Protocol',
+                    '',
+                  ]}
+                  rowCounter={6}
+                >
+                  <TableBodyRow
+                    items={['PROTOCOL_UNSPECIFIED', '= 0', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['PROTOCOL_TCP', '= 1', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['PROTOCOL_UDP', '= 2', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['PROTOCOL_BOTH', '= 3', '']}
+                    rowCounter={7}
+                  />
+                </TableBodyRow>
+              </TableBodyRow>
+              <TableBodyRow
+                items={['self_update', 'boolean', '']}
+                rowCounter={5}
+              />
+            </TableBodyRow>
+            <TableBodyRow
+              items={[
+                <TableCellWithOption text="delete" warningInFront="oneof" />,
+                'NodeDelete',
+                '',
+              ]}
+              rowCounter={4}
+            />
+            <TableBodyRow
+              items={[
+                <TableCellWithOption text="info_get" warningInFront="oneof" />,
+                'NodeGet',
+                '',
+              ]}
+              rowCounter={4}
+            />
+            <TableBodyRow
+              items={[
+                <TableCellWithOption text="restart" warningInFront="oneof" />,
+                'NodeRestart',
+                '',
+              ]}
+              rowCounter={4}
+            />
+            <TableBodyRow
+              items={[
+                <TableCellWithOption text="start" warningInFront="oneof" />,
+                'NodeStart',
+                '',
+              ]}
+              rowCounter={4}
+            />
+            <TableBodyRow
+              items={[
+                <TableCellWithOption text="stop" warningInFront="oneof" />,
+                'NodeStop',
+                '',
+              ]}
+              rowCounter={4}
+            />
+            <TableBodyRow
+              items={[
+                <TableCellWithOption text="update" warningInFront="oneof" />,
+                'NodeUpdate',
+                '',
+              ]}
+              rowCounter={4}
+            >
+              <TableBodyRow
+                items={[
+                  'rules',
+                  <TableCellWithOption text="Rule" info="repeated" />,
+                  '',
+                ]}
+                rowCounter={5}
+              >
+                <TableBodyRow items={['action', 'Action', '']} rowCounter={6}>
+                  <TableBodyRow
+                    items={['ACTION_UNSPECIFIED', '= 0', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['ACTION_ALLOW', '= 1', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['ACTION_DENY', '= 2', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['ACTION_REJECT', '= 3', '']}
+                    rowCounter={7}
+                  />
+                </TableBodyRow>
+                <TableBodyRow
+                  items={['direction', 'Direction', '']}
+                  rowCounter={6}
+                >
+                  <TableBodyRow
+                    items={['DIRECTION_UNSPECIFIED', '= 0', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['DIRECTION_OUT', '= 1', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['DIRECTION_IN', '= 2', '']}
+                    rowCounter={7}
+                  />
+                </TableBodyRow>
+                <TableBodyRow
+                  items={[
+                    <TableCellWithOption text="ips" warning="optional" />,
+                    'string',
+                    '',
+                  ]}
+                  rowCounter={6}
+                />
+                <TableBodyRow items={['name', 'string', '']} rowCounter={6} />
+                <TableBodyRow
+                  items={[
+                    'ports',
+                    <TableCellWithOption
+                      text="unsigned int (32 bit)"
+                      info="repeated"
+                    />,
+                    '',
+                  ]}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={[
+                    <TableCellWithOption text="protocol" warning="optional" />,
+                    'Protocol',
+                    '',
+                  ]}
+                  rowCounter={6}
+                >
+                  <TableBodyRow
+                    items={['PROTOCOL_UNSPECIFIED', '= 0', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['PROTOCOL_TCP', '= 1', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['PROTOCOL_UDP', '= 2', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['PROTOCOL_BOTH', '= 3', '']}
+                    rowCounter={7}
+                  />
+                </TableBodyRow>
+              </TableBodyRow>
+              <TableBodyRow
+                items={[
+                  <TableCellWithOption text="self_update" warning="optional" />,
+                  'boolean',
+                  '',
+                ]}
+                rowCounter={5}
+              />
+            </TableBodyRow>
+            <TableBodyRow
+              items={[
+                <TableCellWithOption text="upgrade" warningInFront="oneof" />,
+                'NodeUpgrade',
+                'Updates a node to use a new OS-image',
+              ]}
+              rowCounter={4}
+            >
+              <TableBodyRow
+                items={['image', 'ContainerImage', '']}
+                rowCounter={5}
+              >
+                <TableBodyRow
+                  items={[
+                    'node_type',
+                    'NodeType',
+                    'snake_cased name of the node type',
+                  ]}
+                  rowCounter={6}
+                >
+                  <TableBodyRow
+                    items={['NODE_TYPE_UNSPECIFIED', '= 0', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_MINER', '= 1', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_ETL', '= 2', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_VALIDATOR', '= 3', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_API', '= 4', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_ORACLE', '= 5', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_RELAY', '= 6', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_EXECUTION', '= 7', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_BEACON', '= 8', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_MEVBOOST', '= 9', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_NODE', '= 10', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_FULLNODE', '= 11', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['NODE_TYPE_LIGHTNODE', '= 12', '']}
+                    rowCounter={7}
+                  />
+                </TableBodyRow>
+                <TableBodyRow
+                  items={[
+                    'node_version',
+                    'string',
+                    'semantic version string of the node type version',
+                  ]}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={[
+                    'protocol',
+                    'string',
+                    'snake_cased name of the blockchain',
+                  ]}
+                  rowCounter={6}
+                />
+                <TableBodyRow
+                  items={[
+                    'status',
+                    'ContainerImageStatus',
+                    'Define config status',
+                  ]}
+                  rowCounter={6}
+                >
+                  <TableBodyRow
+                    items={['CONTAINER_IMAGE_STATUS_UNSPECIFIED', '= 0', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['CONTAINER_IMAGE_STATUS_DEVELOPMENT', '= 1', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['CONTAINER_IMAGE_STATUS_UNSTABLE', '= 2', '']}
+                    rowCounter={7}
+                  />
+                  <TableBodyRow
+                    items={['CONTAINER_IMAGE_STATUS_STABLE', '= 3', '']}
+                    rowCounter={7}
+                  />
+                </TableBodyRow>
+              </TableBodyRow>
+            </TableBodyRow>
+          </TableBodyRow>
+        </TableBodyRow>
+      </TableBodyRow>
+    </TableBodyRow>
+  </TableBody>
+</Table>

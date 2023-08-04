@@ -9,6 +9,7 @@ import IconSuccess from '@theme/Icon/Success';
 
 interface Props {
   codes: Code[];
+  defaultLanguage?: Language;
 }
 
 const languageTypeGuard = (language: string): language is Language => {
@@ -16,16 +17,20 @@ const languageTypeGuard = (language: string): language is Language => {
   return validLanguages.includes(language);
 };
 
-export const CustomCodeBlock: FC<Props> = ({ codes }) => {
+export const CustomCodeBlock: FC<Props> = ({
+  codes,
+  defaultLanguage = 'go',
+}) => {
   const [isCopied, setIsCopied] = useState(false);
   const [isShorten, setIsShorten] = useState(true);
-  const [currentLanguage, setCurrentLanguage] = useState<Language>('go');
+  const [currentLanguage, setCurrentLanguage] =
+    useState<Language>(defaultLanguage);
   const currentCode = useMemo(
-    () => codes.find((code) => code.language === currentLanguage),
+    () => codes?.find((code) => code.language === currentLanguage),
     [codes, currentLanguage],
   );
   const languageOptions = useMemo(
-    () => codes.map(({ language }) => language),
+    () => codes?.map(({ language }) => language),
     [codes],
   );
   const codeToDisplay = useMemo(
@@ -86,18 +91,16 @@ export const CustomCodeBlock: FC<Props> = ({ codes }) => {
           </button>
         </div>
       </div>
-      <>
-        {currentCode ? (
-          <div className={style.base}>
-            <CodeBlock
-              text={codeToDisplay}
-              language={currentCode.language}
-              theme={dracula}
-              codeBlock
-            />
-          </div>
-        ) : null}
-      </>
+      {currentCode ? (
+        <div className={style.base}>
+          <CodeBlock
+            text={codeToDisplay}
+            language={currentCode.language}
+            theme={dracula}
+            codeBlock
+          />
+        </div>
+      ) : null}
     </div>
   );
 };

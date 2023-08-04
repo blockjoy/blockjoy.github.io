@@ -5,18 +5,23 @@ interface Props {
   text: string;
   info?: string;
   warning?: string;
-  isOneof?: boolean;
+  infoInFront?: string;
+  warningInFront?: string;
 }
 
 export const TableCellWithOption: FC<Props> = ({
   text,
   info,
   warning,
-  isOneof,
+  infoInFront,
+  warningInFront,
 }) => {
   return (
     <div className={style.base}>
-      {isOneof && <span className={style.warning}>onef</span>}
+      {warningInFront && (
+        <span className={style.warning}>{warningInFront}</span>
+      )}
+      {infoInFront && <span className={style.info}>{infoInFront}</span>}
       <span>{text}</span>
       {warning && <span className={style.warning}>{warning}</span>}
       {info && <span className={style.info}>{info}</span>}{' '}
