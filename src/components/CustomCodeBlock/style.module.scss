@@ -15,11 +15,17 @@
 .heading {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   padding: 4px 12px;
+  gap: 12px;
   background-color: #373939;
   font-size: var(--font-size-small);
   line-height: var(--line-height-small);
   font-family: var(--ifm-font-family-base-bold);
+
+  @media screen and (min-width: 480px) {
+    flex-direction: row;
+  }
 }
 
 .select {
@@ -33,9 +39,14 @@
   transition: background-color 0.2s ease-out;
   border-radius: 4px;
   text-transform: capitalize;
+  padding: 6px 16px;
 
   &:hover {
     background-color: var(--ifm-background-color);
+  }
+
+  @media screen and (max-width: 480px) {
+    width: max-content;
   }
 }
 
