@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import {useDocsSidebar} from '@docusaurus/theme-common/internal';
-import type {Props} from '@theme/DocPage/Layout/Main';
+import { useDocsSidebar } from '@docusaurus/theme-common/internal';
+import type { Props } from '@theme/DocPage/Layout/Main';
 
 import styles from './styles.module.css';
 
@@ -15,13 +15,15 @@ export default function DocPageLayoutMain({
       className={clsx(
         styles.docMainContainer,
         (hiddenSidebarContainer || !sidebar) && styles.docMainContainerEnhanced,
-      )}>
+      )}
+    >
       <div
         className={clsx(
-          'container padding-top--md padding-bottom--lg',
+          'container',
           styles.docItemWrapper,
           hiddenSidebarContainer && styles.docItemWrapperEnhanced,
-        )}>
+        )}
+      >
         {children}
       </div>
     </main>

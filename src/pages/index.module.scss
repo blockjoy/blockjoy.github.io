@@ -55,6 +55,10 @@
 
   @media screen and (min-width: 767px) {
     margin-bottom: 60px;
+    grid-column: 1 / span 2;
+  }
+
+  @media screen and (min-width: 997px) {
     grid-column: 2 / span 2;
   }
 }

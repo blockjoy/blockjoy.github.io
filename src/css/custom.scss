@@ -114,8 +114,10 @@ input {
 }
 
 aside {
-  width: 33% !important;
-  border-right: none !important;
+  @media screen and (min-width: 997px) {
+    width: 33% !important;
+    border-right: none !important;
+  }
 }
 
 main {
@@ -123,7 +125,12 @@ main {
 
   & > .container {
     margin: 0;
+    padding: 0;
     height: 100%;
+
+    & > .row {
+      margin: 0;
+    }
   }
 
   & > .row {
@@ -151,14 +158,6 @@ main {
     @media screen and (min-width: 997px) {
       max-width: 1600px;
     }
-  }
-
-  .padding-top--md {
-    padding-top: 0 !important;
-  }
-
-  .padding-bottom--lg {
-    padding-bottom: 0 !important;
   }
 }
 
@@ -233,5 +232,13 @@ main {
 
   &:hover:before {
     width: 100%;
+  }
+}
+
+.col {
+  padding: 0 20px;
+
+  @media screen and (min-width: 997px) {
+    padding: 0;
   }
 }
