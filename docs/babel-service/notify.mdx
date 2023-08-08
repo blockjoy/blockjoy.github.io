@@ -9,7 +9,8 @@ import { Table } from '@site/src/components/Table/Table.tsx';
 import { TableHead } from '@site/src/components/Table/TableHead.tsx';
 import { TableBody } from '@site/src/components/Table/TableBody.tsx';
 import { TableBodyRow } from '@site/src/components/Table/TableBodyRow.tsx';
-import { TableBodyRowWithDropdown } from '@site/src/components/Table/TableBodyRowWithDropdown.tsx';
+import { codes } from './codeblocks/codeblocks';
+import { CustomCodeBlock } from '@site/src/components/CustomCodeBlock/CustomCodeBlock.tsx';
 
 # Notify
 
@@ -23,71 +24,46 @@ Notify about a new version of node image
 
 Message to send when a new version of node image is released
 
-| Field  | Type        | Description                                                                                                                                                  |
-| ------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| config | BabelConfig | <p><strong>Field:</strong> Configuration of the node</p><p><strong>BabelConfig:</strong> Message to send when a new configuration in cookbook is created</p> |
-| uid    | string      | UUID of the version request                                                                                                                                  |
-
 <Table>
-    <TableHead items={['Field', 'Type', 'Description']} />
-    <TableBody>
-        <TableBodyRowWithDropdown
-         rows={[
-                {
-                    cells: [
-                        {
-                            name: 'config',
-                            isDropdown: true,
-                        },
-                        { name: 'BabelConfig' },
-                        {
-                            name: (
-                                <>
-                                    <p>
-                                        <strong>Field:</strong> Configuration of
-                                        the node
-                                    </p>
-                                    <p>
-                                        <strong>BabelConfig:</strong> Message to
-                                        send when a new configuration in
-                                        cookbook is created
-                                    </p>
-                                </> 
-                            ),
-                        },
-                    ],
-                    newRow: [
-                        {
-                            cells: [
-                                {name: 'node_type'},
-                                { name: 'string' },
-                                { name:'snake_cased name of the node type'},
-                            ],
-                        },
-                        {
-                            cells: [
-                                {name: 'node_version'},
-                                { name: 'string' },
-                                { name:'semantic version string of the node type version'},
-                            ],
-                        },
-                        {
-                            cells: [
-                                {name: 'protocol'},
-                                { name: 'string' },
-                                { name:'snake_cased name of the blockchain'},
-                            ],
-                        },
-                    ],
-                },
-            ]}
-             />
-        <TableBodyRow
-            items={['uuid', 'string', 'UUID of the version request']}
-        />
-    </TableBody>
-
+  <TableHead items={['Field', 'Type', 'Description']} />
+  <TableBody>
+    <TableBodyRow
+      items={[
+        'config',
+        'BabelConfig',
+        <>
+          <p>
+            <strong>Field:</strong> Configuration of the node
+          </p>
+          <p>
+            <strong>BabelConfig:</strong> Message to send when a new
+            configuration in cookbook is created
+          </p>
+        </>,
+      ]}
+    >
+      <TableBodyRow
+        items={['node_type', 'string', 'snake_cased name of the node type']}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          'node_version',
+          'string',
+          'semantic version string of the node type version',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={['protocol', 'string', 'snake_cased name of the blockchain']}
+        rowCounter={1}
+      />
+    </TableBodyRow>
+    <TableBodyRow items={['uiid', 'string', 'UUID of the version request']} />
+  </TableBody>
 </Table>
+
+<CustomCodeBlock codes={codes} />
 
 <ApiMethod method="returns" name="BabelServiceNotifyResponse" />
 

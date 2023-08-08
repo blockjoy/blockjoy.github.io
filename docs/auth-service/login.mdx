@@ -4,6 +4,8 @@ sidebar_position: 3
 
 import { VersionType } from '@site/src/components/VersionType/VersionType.tsx';
 import { ApiMethod } from '@site/src/components/ApiMethod/ApiMethod.tsx';
+import { CustomCodeBlock } from '@site/src/components/CustomCodeBlock/CustomCodeBlock.tsx';
+import { codes } from './codeblocks/login/codeblocks';
 
 # Login
 
@@ -19,6 +21,8 @@ Login user, i.e. retrieve token
 | -------- | ------ | ----------- |
 | email    | string |             |
 | password | string |             |
+
+<CustomCodeBlock codes={codes} />
 
 <ApiMethod method="returns" name="AuthServiceLoginResponse" />
 

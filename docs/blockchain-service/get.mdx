@@ -1,0 +1,232 @@
+---
+sidebar_position: 2
+---
+
+import { VersionType } from '@site/src/components/VersionType/VersionType.tsx';
+import { ApiMethod } from '@site/src/components/ApiMethod/ApiMethod.tsx';
+import { TableCellWithOption } from '@site/src/components/TableCellWithOption/TableCellWithOption.tsx';
+import { Table } from '@site/src/components/Table/Table.tsx';
+import { TableHead } from '@site/src/components/Table/TableHead.tsx';
+import { TableBody } from '@site/src/components/Table/TableBody.tsx';
+import { TableBodyRow } from '@site/src/components/Table/TableBodyRow.tsx';
+import { codes } from './codeblocks/get/codeblocks';
+import { CustomCodeBlock } from '@site/src/components/CustomCodeBlock/CustomCodeBlock.tsx';
+
+# Get
+
+<ApiMethod method="rpc" name="Get" />
+
+Returns a single blockchain as identified by its id.
+
+<ApiMethod method="requests" name="BlockchainServiceGetRequest" />
+
+<VersionType>blockjoy.v1.BlockchainServiceGetRequest</VersionType>
+
+| Field | Type   | Description |
+| ----- | ------ | ----------- |
+| id    | string |             |
+
+<CustomCodeBlock codes={codes} />
+
+<ApiMethod method="returns" name="BlockchainServiceGetResponse" />
+
+<VersionType>blockjoy.v1.BlockchainServiceGetResponse</VersionType>
+
+<Table>
+  <TableHead items={['Field', 'Type', 'Description']} />
+  <TableBody>
+    <TableBodyRow items={['blockchain', 'Blockchain', '']}>
+      <TableBodyRow items={['created_at', 'Timestamp', '']} rowCounter={1}>
+        <TableBodyRow items={['nanos', 'int (32 bit)', '']} rowCounter={2} />
+        <TableBodyRow items={['seconds', 'int (64 bit)', '']} rowCounter={2} />
+      </TableBodyRow>
+      <TableBodyRow items={['description', 'string', '']} rowCounter={1} />
+      <TableBodyRow items={['id', 'string', '']} rowCounter={1} />
+      <TableBodyRow items={['name', 'string', '']} rowCounter={1} />
+      <TableBodyRow
+        items={[
+          'networks',
+          <TableCellWithOption text="BlockchainNetwork" info="repeated" />,
+          '',
+        ]}
+        rowCounter={1}
+      >
+        <TableBodyRow items={['name', 'string', '']} rowCounter={2} />
+        <TableBodyRow
+          items={['net_type', 'BlockchainNetworkType', '']}
+          rowCounter={2}
+        >
+          <TableBodyRow
+            items={['BLOCKCHAIN_NETWORK_TYPE_UNSPECIFIED', '= 0', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow
+            items={['BLOCKCHAIN_NETWORK_TYPE_DEV', '= 1', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow
+            items={['BLOCKCHAIN_NETWORK_TYPE_TEST', '= 2', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow
+            items={['BLOCKCHAIN_NETWORK_TYPE_MAIN', '= 3', '']}
+            rowCounter={3}
+          />
+        </TableBodyRow>
+        <TableBodyRow items={['url', 'string', '']} rowCounter={2} />
+      </TableBodyRow>
+      <TableBodyRow
+        items={[
+          'nodes_types',
+          <TableCellWithOption text="SupportedNodeType" info="repeated" />,
+          'This list contains all the possible node types that can be created for this kind of blockchain.',
+        ]}
+        rowCounter={1}
+      >
+        <TableBodyRow items={['node_type', 'NodeType', '']} rowCounter={2}>
+          <TableBodyRow
+            items={['NODE_TYPE_UNSPECIFIED', '= 0', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow items={['NODE_TYPE_MINER', '= 1', '']} rowCounter={3} />
+          <TableBodyRow items={['NODE_TYPE_ETL', '= 2', '']} rowCounter={3} />
+          <TableBodyRow
+            items={['NODE_TYPE_VALIDATOR', '= 3', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow items={['NODE_TYPE_API', '= 4', '']} rowCounter={3} />
+          <TableBodyRow
+            items={['NODE_TYPE_ORACLE', '= 5', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow items={['NODE_TYPE_RELAY', '= 6', '']} rowCounter={3} />
+          <TableBodyRow
+            items={['NODE_TYPE_EXECUTION', '= 7', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow
+            items={['NODE_TYPE_BEACON', '= 8', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow
+            items={['NODE_TYPE_MEVBOOST', '= 9', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow items={['NODE_TYPE_NODE', '= 10', '']} rowCounter={3} />
+          <TableBodyRow
+            items={['NODE_TYPE_FULLNODE', '= 11', '']}
+            rowCounter={3}
+          />
+          <TableBodyRow
+            items={['NODE_TYPE_LIGHTNODE', '= 12', '']}
+            rowCounter={3}
+          />
+        </TableBodyRow>
+        <TableBodyRow
+          items={[
+            'properties',
+            <TableCellWithOption
+              text="SupportedNodeProperty"
+              info="repeated"
+            />,
+            '',
+          ]}
+          rowCounter={2}
+        >
+          <TableBodyRow
+            items={[
+              <TableCellWithOption text="default" warning="optional" />,
+              'string',
+              '',
+            ]}
+            rowCounter={3}
+          />
+          <TableBodyRow items={['disabled', 'boolean', '']} rowCounter={3} />
+          <TableBodyRow items={['name', 'string', '']} rowCounter={3} />
+          <TableBodyRow items={['required', 'boolean', '']} rowCounter={3} />
+          <TableBodyRow items={['ui_type', 'UiType', '']} rowCounter={3}>
+            <TableBodyRow
+              items={['UI_TYPE_UNSPECIFIED', '= 0', '']}
+              rowCounter={4}
+            />
+            <TableBodyRow
+              items={['UI_TYPE_SWITCH', '= 1', '']}
+              rowCounter={4}
+            />
+            <TableBodyRow
+              items={['UI_TYPE_PASSWORD', '= 2', '']}
+              rowCounter={4}
+            />
+            <TableBodyRow items={['UI_TYPE_TEXT', '= 3', '']} rowCounter={4} />
+            <TableBodyRow
+              items={['UI_TYPE_FILE_UPLOAD', '= 4', '']}
+              rowCounter={4}
+            />
+          </TableBodyRow>
+        </TableBodyRow>
+        <TableBodyRow items={['version', 'string', '']} rowCounter={2} />
+      </TableBodyRow>
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="project_url" warning="optional" />,
+          'string',
+          '',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="repo_url" warning="optional" />,
+          'string',
+          '',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow items={['status', 'BlockchainStatus', '']} rowCounter={1}>
+        <TableBodyRow
+          items={['BLOCKCHAIN_STATUS_UNSPECIFIED', '= 0', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['BLOCKCHAIN_STATUS_DEVELOPMENT', '= 1', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['BLOCKCHAIN_STATUS_ALPHA', '= 2', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['BLOCKCHAIN_STATUS_BETA', '= 3', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['BLOCKCHAIN_STATUS_PRODUCTION', '= 4', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['BLOCKCHAIN_STATUS_DELETED', '= 5', '']}
+          rowCounter={2}
+        />
+      </TableBodyRow>
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="updated_at" warning="optional" />,
+          'Timestamp',
+          '',
+        ]}
+        rowCounter={1}
+      >
+        <TableBodyRow items={['nanos', 'int (32 bit)', '']} rowCounter={2} />
+        <TableBodyRow items={['seconds', 'int (64 bit)', '']} rowCounter={2} />
+      </TableBodyRow>
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="version" warning="optional" />,
+          'string',
+          '',
+        ]}
+        rowCounter={1}
+      />
+    </TableBodyRow>
+  </TableBody>
+</Table>

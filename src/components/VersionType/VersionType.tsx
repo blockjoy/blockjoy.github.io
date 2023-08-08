@@ -6,5 +6,9 @@ interface Props {
 }
 
 export const VersionType: FC<Props> = ({ children }) => {
-  return <p className={styles.base}>{children}</p>;
+  return (
+    <p className={styles.base}>
+      <span>{children}</span>
+    </p>
+  );
 };

@@ -1,0 +1,33 @@
+---
+sidebar_position: 3
+---
+
+import { VersionType } from '@site/src/components/VersionType/VersionType.tsx';
+import { ApiMethod } from '@site/src/components/ApiMethod/ApiMethod.tsx';
+import { CustomCodeBlock } from '@site/src/components/CustomCodeBlock/CustomCodeBlock.tsx';
+import { codes } from './codeblocks/delete/codeblocks';
+import { TableCellWithOption } from '@site/src/components/TableCellWithOption/TableCellWithOption.tsx';
+import { Table } from '@site/src/components/Table/Table.tsx';
+import { TableHead } from '@site/src/components/Table/TableHead.tsx';
+import { TableBody } from '@site/src/components/Table/TableBody.tsx';
+import { TableBodyRow } from '@site/src/components/Table/TableBodyRow.tsx';
+
+# Delete
+
+<ApiMethod method="rpc" name="Delete" />
+
+Delete a single host
+
+<ApiMethod method="requests" name="HostServiceDeleteRequest" />
+
+<VersionType>blockjoy.v1.HostServiceDeleteRequest</VersionType>
+
+| Field | Type   | Description |
+| ----- | ------ | ----------- |
+| id    | string |             |
+
+<CustomCodeBlock codes={codes} />
+
+<ApiMethod method="returns" name="HostServiceDeleteResponse" />
+
+<VersionType>blockjoy.v1.HostServiceDeleteResponse</VersionType>

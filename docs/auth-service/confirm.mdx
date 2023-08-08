@@ -4,6 +4,8 @@ sidebar_position: 2
 
 import { VersionType } from '@site/src/components/VersionType/VersionType.tsx';
 import { ApiMethod } from '@site/src/components/ApiMethod/ApiMethod.tsx';
+import { CustomCodeBlock } from '@site/src/components/CustomCodeBlock/CustomCodeBlock.tsx';
+import { codes } from './codeblocks/confirm/codeblocks';
 
 # Confirm
 
@@ -14,6 +16,8 @@ Confirm user registration
 <ApiMethod method="requests" name="AuthServiceConfirmRequest" />
 
 <VersionType>blockjoy.v1.AuthServiceConfirmRequest</VersionType>
+
+<CustomCodeBlock codes={codes} />
 
 <ApiMethod method="returns" name="AuthServiceConfirmResponse" />
 

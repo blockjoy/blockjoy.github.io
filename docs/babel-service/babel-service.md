@@ -8,4 +8,4 @@ import { VersionType } from '@site/src/components/VersionType/VersionType.tsx';
 
 <VersionType>blockjoy.v1.BabelService</VersionType>
 
-BabelService
+Babel related service.
