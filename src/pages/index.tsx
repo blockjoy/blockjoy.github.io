@@ -2,10 +2,12 @@ import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import styles from './index.module.scss';
-import DocSidebar from '../theme/DocSidebar/index';
 import Image from '@site/src/theme/IdealImage';
 import { FeaturedPosts } from '../components/FeaturedPosts/FeaturedPosts';
 import { BlogList } from '../components/BlogList/BlogList';
+import SearchBar from '@theme/SearchBar';
+import type { Props } from '@theme/DocPage';
+import { HomeSidebar } from '../components/HomeSidebar/HomeSidebar';
 
 const FEATUED_DUMMY_POSTS_ONE = [
   {
@@ -48,7 +50,7 @@ const FEATUED_DUMMY_POSTS_TWO = [
   },
 ];
 
-export default function Home(): JSX.Element {
+export default function Home(props: Props): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
 
   return (
@@ -56,24 +58,13 @@ export default function Home(): JSX.Element {
       title={`Homepage | Blockjoy`}
       description="Description will go into a meta tag in <head />"
     >
-      <div className={styles.sidebar}>
-        <DocSidebar
-          sidebar={[
-            { type: 'link', href: '/myCustomPage', label: 'My Custom Page' },
-            {
-              type: 'link',
-              href: '/anotherCustomPage',
-              label: 'Another Custom Page',
-            },
-          ]}
-          path="/"
-          onCollapse={() => {}}
-          isHidden={false}
-        />
-      </div>
+      <HomeSidebar />
       <main className={styles.main}>
         <p className={styles.breadcrumb}>Home</p>
         <h1 className={styles.title}>{siteConfig.title}</h1>
+        <div className={styles.searchbar}>
+          <SearchBar />
+        </div>
         <div className={styles.documentation}>
           <h2 className={styles.documentation__title}>
             BlockJoy Documentation
