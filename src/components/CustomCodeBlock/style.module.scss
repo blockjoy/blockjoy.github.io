@@ -3,11 +3,11 @@
 }
 
 .base {
-  > span {
+  & > span {
     background: #272a29 !important;
   }
 
-  > span > code {
+  & > span > code {
     width: 100%;
   }
 }
