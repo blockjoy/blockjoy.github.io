@@ -6,12 +6,12 @@
 
 /* You can override the default Infima variables here. */
 
-@import '@site/src/css/markdown.module';
-@import '@site/src/components/navbar/navbar.module';
-@import '@site/src/components/menu/menu.module';
-@import '@site/src/components/Pagination/pagination.module';
-@import '@site/src/theme/DocBreadcrumbs/styles.module';
-@import '@site/src/theme/Footer/styles.module';
+@import './markdown.module';
+@import '../components/Navbar/navbar.module';
+@import '../components/Menu/menu.module';
+@import '../components/Pagination/pagination.module';
+@import '../theme/DocBreadcrumbs/styles.module';
+@import '../theme/Footer/styles.module';
 
 @font-face {
   font-family: 'StyreneALC Regular';
