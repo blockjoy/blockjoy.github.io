@@ -53,3 +53,11 @@
     }
   }
 }
+
+.navbar__items--right {
+  @media screen and (min-width: 997px) {
+    & > :last-child {
+      padding-right: 12px;
+    }
+  }
+}

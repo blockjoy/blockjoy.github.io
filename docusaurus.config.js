@@ -95,7 +95,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'client-libraries',
             position: 'right',
             label: 'Documents',
           },
@@ -121,6 +121,230 @@ const config = {
           },
         ],
       },
+      sidebar: [
+        {
+          type: 'link',
+          href: '/docs/client-libraries',
+          label: 'Client Libraries',
+        },
+        {
+          type: 'link',
+          href: '/docs/authentication',
+          label: 'Authentication',
+        },
+        {
+          type: 'category',
+          href: '/docs/auth-service',
+          label: 'Auth Service',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'link',
+              href: '/docs/auth-service/confirm',
+              label: 'Confirm',
+            },
+            {
+              type: 'link',
+              href: '/docs/auth-service/login',
+              label: 'Login',
+            },
+            {
+              type: 'link',
+              href: '/docs/auth-service/refresh',
+              label: 'Refresh',
+            },
+            {
+              type: 'link',
+              href: '/docs/auth-service/reset-password',
+              label: 'Reset Password',
+            },
+            {
+              type: 'link',
+              href: '/docs/auth-service/update-password',
+              label: 'Update Password',
+            },
+            {
+              type: 'link',
+              href: '/docs/auth-service/update-uipassword',
+              label: 'Update UIPassword',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          href: '/docs/babel-service',
+          label: 'Babel Service',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'link',
+              href: '/docs/babel-service/notify',
+              label: 'Notify',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          href: '/docs/blockchain-service',
+          label: 'Blockchain Service',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'link',
+              href: '/docs/blockchain-service/get',
+              label: 'Get',
+            },
+            {
+              type: 'link',
+              href: '/docs/blockchain-service/list',
+              label: 'List',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          href: '/docs/command-service',
+          label: 'Command Service',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'link',
+              href: '/docs/command-service/create',
+              label: 'Create',
+            },
+            {
+              type: 'link',
+              href: '/docs/command-service/get',
+              label: 'Get',
+            },
+            {
+              type: 'link',
+              href: '/docs/command-service/pending',
+              label: 'Pending',
+            },
+            {
+              type: 'link',
+              href: '/docs/command-service/update',
+              label: 'Update',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          href: '/docs/discovery-service',
+          label: 'Discovery Service',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'link',
+              href: '/docs/discovery-service/services',
+              label: 'Services',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          href: '/docs/host-provision-service',
+          label: 'Host Provision Service',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'link',
+              href: '/docs/host-provision-service/create',
+              label: 'Create',
+            },
+            {
+              type: 'link',
+              href: '/docs/host-provision-service/get',
+              label: 'Get',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          href: '/docs/host-service',
+          label: 'Host Service',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              href: '/docs/host-service/create',
+              label: 'Create',
+            },
+            {
+              type: 'link',
+              href: '/docs/host-service/delete',
+              label: 'Delete',
+            },
+            {
+              type: 'link',
+              href: '/docs/host-service/get',
+              label: 'Get',
+            },
+            {
+              type: 'link',
+              href: '/docs/host-service/list',
+              label: 'List',
+            },
+            {
+              type: 'link',
+              href: '/docs/host-service/provision',
+              label: 'Provision',
+            },
+            {
+              type: 'link',
+              href: '/docs/host-service/update',
+              label: 'Update',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          href: '/docs/inovation-service',
+          label: 'Inovation Service',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'link',
+              href: '/docs/inovation-service/accept',
+              label: 'Accept',
+            },
+            {
+              type: 'link',
+              href: '/docs/inovation-service/create',
+              label: 'Create',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          href: '/docs/tutorial',
+          label: 'Tutorial Intro',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'link',
+              href: '/docs/tutorial/tutorial-extras',
+              label: 'Tutorial - Extras',
+            },
+            {
+              type: 'link',
+              href: '/docs/tutorial/tutorial-basics',
+              label: 'Tutorial - Basics',
+            },
+          ],
+        },
+      ],
+
       footer: {
         logo: {
           alt: 'Blockjoy Logo',
