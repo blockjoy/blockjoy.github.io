@@ -324,27 +324,7 @@ const config = {
             },
           ],
         },
-        {
-          type: 'category',
-          href: '/docs/tutorial',
-          label: 'Tutorial Intro',
-          collapsible: true,
-          collapsed: true,
-          items: [
-            {
-              type: 'link',
-              href: '/docs/tutorial/tutorial-extras',
-              label: 'Tutorial - Extras',
-            },
-            {
-              type: 'link',
-              href: '/docs/tutorial/tutorial-basics',
-              label: 'Tutorial - Basics',
-            },
-          ],
-        },
       ],
-
       footer: {
         logo: {
           alt: 'Blockjoy Logo',
