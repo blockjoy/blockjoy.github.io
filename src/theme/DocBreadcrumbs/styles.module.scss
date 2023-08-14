@@ -1,0 +1,41 @@
+.breadcrumbsContainer {
+  --ifm-breadcrumb-size-multiplier: 0.8;
+  margin-bottom: 28px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 48px;
+  }
+}
+
+.breadcrumbs {
+  margin-top: 40px;
+  margin-left: -12px;
+
+  @media screen and (min-width: 997px) {
+    margin-top: -12px;
+  }
+}
+
+.breadcrumbs__item {
+  .breadcrumbs__link {
+    color: var(--text-3);
+    padding: 12px;
+    cursor: pointer;
+  }
+
+  &--active {
+    .breadcrumbs__link {
+      color: var(--text-5);
+      background-color: transparent;
+    }
+  }
+
+  &:after {
+    background: transparent !important;
+    border-right: 2px solid var(--icon-2);
+    border-bottom: 2px solid var(--icon-2);
+    transform: rotate(-45deg);
+    width: 8px;
+    height: 8px;
+  }
+}

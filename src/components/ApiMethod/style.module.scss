@@ -1,0 +1,11 @@
+.base {
+  font-size: var(--font-size-base-fluid);
+  line-height: var(--line-height-base-fluid);
+  font-weight: 400;
+  color: var(--text-5);
+  margin: 80px 0 16px !important;
+
+  & > span:first-of-type {
+    color: var(--text-3);
+  }
+}

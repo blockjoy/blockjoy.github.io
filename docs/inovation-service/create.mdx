@@ -1,0 +1,34 @@
+---
+sidebar_position: 3
+---
+
+import { VersionType } from '@site/src/components/VersionType/VersionType.tsx';
+import { ApiMethod } from '@site/src/components/ApiMethod/ApiMethod.tsx';
+import { CustomCodeBlock } from '@site/src/components/CustomCodeBlock/CustomCodeBlock.tsx';
+import { codes } from './codeblocks/create/codeblocks';
+import { TableCellWithOption } from '@site/src/components/TableCellWithOption/TableCellWithOption.tsx';
+import { Table } from '@site/src/components/Table/Table.tsx';
+import { TableHead } from '@site/src/components/Table/TableHead.tsx';
+import { TableBody } from '@site/src/components/Table/TableBody.tsx';
+import { TableBodyRow } from '@site/src/components/Table/TableBodyRow.tsx';
+
+# Create
+
+<ApiMethod method="rpc" name="Create" />
+
+Invite a user into an organization.
+
+<ApiMethod method="requests" name="InvitationServiceCreateRequest" />
+
+<VersionType>blockjoy.v1.InvitationServiceCreateRequest</VersionType>
+
+| Field         | Type   | Description                                                                                                                                                             |
+| ------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| invitee_email | string | The id of the person that is being invited here. Note that this is not the uuid of some user, because the person that is being invited might not have an account (yet). |
+| org_id        | string | The id of the organization that the user is being invited to.                                                                                                           |
+
+<CustomCodeBlock codes={codes} />
+
+<ApiMethod method="returns" name="InvitationServiceCreateResponse" />
+
+<VersionType>blockjoy.v1.InvitationServiceCreateResponse</VersionType>

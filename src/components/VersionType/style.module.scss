@@ -1,0 +1,22 @@
+.base {
+  display: flex;
+  padding: 4px 16px;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-5);
+  background-color: #f8faf61a;
+  font-size: var(--font-size-tiny);
+  line-height: var(--line-height-tiny);
+  margin-bottom: 20px;
+  width: max-content;
+  border-radius: 4px;
+  overflow-x: auto;
+  width: 100%;
+  max-width: max-content;
+
+  @media screen and (min-width: 480px) {
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+    margin-bottom: 24px;
+  }
+}

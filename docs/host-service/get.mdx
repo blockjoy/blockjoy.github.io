@@ -1,0 +1,223 @@
+---
+sidebar_position: 4
+---
+
+import { VersionType } from '@site/src/components/VersionType/VersionType.tsx';
+import { ApiMethod } from '@site/src/components/ApiMethod/ApiMethod.tsx';
+import { CustomCodeBlock } from '@site/src/components/CustomCodeBlock/CustomCodeBlock.tsx';
+import { codes } from './codeblocks/get/codeblocks';
+import { TableCellWithOption } from '@site/src/components/TableCellWithOption/TableCellWithOption.tsx';
+import { Table } from '@site/src/components/Table/Table.tsx';
+import { TableHead } from '@site/src/components/Table/TableHead.tsx';
+import { TableBody } from '@site/src/components/Table/TableBody.tsx';
+import { TableBodyRow } from '@site/src/components/Table/TableBodyRow.tsx';
+
+# Get
+
+<ApiMethod method="rpc" name="Get" />
+
+<ApiMethod method="requests" name="HostServiceGetRequest" />
+
+<VersionType>blockjoy.v1.HostServiceGetRequest</VersionType>
+
+| Field | Type   | Description |
+| ----- | ------ | ----------- |
+| id    | string |             |
+
+<CustomCodeBlock codes={codes} />
+
+<ApiMethod method="returns" name="HostServiceGetResponse" />
+
+<VersionType>blockjoy.v1.HostServiceGetResponse</VersionType>
+
+<Table>
+  <TableHead items={['Field', 'Type', 'Description']} />
+  <TableBody>
+    <TableBodyRow
+      items={[
+        'host',
+        'Host',
+        'A Host is a physical (bare metal) server that is provisioned to run Nodes. [Example]{ “id”: “c67f154e-3288-40d7-9622-e41094d83ffa”, “name”: “fair-robin-blue”, “version”: “1.0”, “cpu_count”: 64, “mem_size_bytes”: 64000000000, “disk_size_bytes”: 4000000000000, “os”: “Linux” “os_version”: “3.6.9”, “ip”: “192.168.2.133”, “status”: 1, “created_at”: “2023-06-06T12:41:57.317Z”, “ip_range_from”: “192.168.1.2”, “ip_range_to”: “192.168.1.99”, “ip_gateway”: “192.168.1.1”, “org_id”: “f24b61a5-f80b-4e69-b4c8-028c66323153” }',
+      ]}
+    >
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="cpu_count" warning="optional" />,
+          'unsigned int (64 bit)',
+          'The number of logical cores the machine has.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          'created_at',
+          'Timestamp',
+          'The moment this host was created. Corresponds to the moment that the host_provision was',
+        ]}
+        rowCounter={1}
+      >
+        <TableBodyRow items={['nanos', 'int (32 bit)', '']} rowCounter={2} />
+        <TableBodyRow items={['seconds', 'int (64 bit)', '']} rowCounter={2} />
+      </TableBodyRow>
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="disk_size_bytes" warning="optional" />,
+          'unsigned int (64 bit)',
+          'The size of the physical disks the machine has.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={['id', 'string', 'This is the id of the host.']}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          'ip',
+          'string',
+          'The ip address on which the machine is reachable.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="ip_gateway" warning="optional" />,
+          'string',
+          'The ip gateway of this host.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="ip_range_from" warning="optional" />,
+          'string',
+          'The lowest ip address that this host may assign to a node.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="ip_range_to" warning="optional" />,
+          'string',
+          'The highest ip address that this host may assign to a node.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="mem_size_bytes" warning="optional" />,
+          'unsigned int (64 bit)',
+          'The amount of physical memory the machine has.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          'name',
+          'string',
+          'This is the randomly generated name of the host.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          <TableCellWithOption text="org_id" warning="optional" />,
+          'string',
+          'The organization that this host belongs to.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          'os',
+          'string',
+          'The operating system running on the machine, i.e. “BSD” or “Linux”.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          'os_version',
+          'string',
+          'The version of said operating system running on the host.',
+        ]}
+        rowCounter={1}
+      />
+      <TableBodyRow
+        items={[
+          'status',
+          'HostStatus',
+          <>
+            <p>
+              <strong>Field:</strong> Current status of the machine, or
+              UNSPECIFIED.
+            </p>
+            <p>
+              <strong>HostStatus:</strong> Possible states the container is
+              described with
+            </p>
+          </>,
+          '',
+        ]}
+        rowCounter={1}
+      >
+        <TableBodyRow
+          items={['HOST_STATUS_UNSPECIFIED', '= 0', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['HOST_STATUS_CREATING', '= 1', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['HOST_STATUS_RUNNING', '= 2', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['HOST_STATUS_STARTING', '= 3', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['HOST_STATUS_STOPPING', '= 4', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['HOST_STATUS_STOPPED', '= 5', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['HOST_STATUS_UPGRADING', '= 6', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['HOST_STATUS_UPGRADED', '= 7', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['HOST_STATUS_DELETING', '= 8', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['HOST_STATUS_DELETED', '= 9', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['HOST_STATUS_INSTALLING', '= 10', '']}
+          rowCounter={2}
+        />
+        <TableBodyRow
+          items={['HOST_STATUS_SNAPSHOTTING', '= 11', '']}
+          rowCounter={2}
+        />
+      </TableBodyRow>
+      <TableBodyRow
+        items={[
+          'version',
+          'string',
+          'The version of the blockjoy control software running on the host.',
+        ]}
+        rowCounter={1}
+      />
+    </TableBodyRow>
+  </TableBody>
+</Table>

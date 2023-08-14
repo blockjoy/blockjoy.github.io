@@ -1,0 +1,23 @@
+.cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cell--active {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  svg {
+    transform: rotate(90deg);
+
+    path {
+      fill: var(--ifm-color-primary);
+    }
+  }
+}
+
+.cellClickable {
+  cursor: pointer;
+}
