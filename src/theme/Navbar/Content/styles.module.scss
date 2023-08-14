@@ -1,0 +1,37 @@
+/*
+Hide color mode toggle in small viewports
+ */
+@media (max-width: 996px) {
+  .colorModeToggle {
+    display: none;
+  }
+}
+
+.nav__search--mobile {
+  position: relative;
+
+  & > div {
+    position: relative;
+
+    & > button {
+      background-color: transparent;
+      width: 100%;
+      border: 1px solid var(--border-5);
+      color: var(--text-4);
+      padding: 12px 20px;
+
+      &:hover {
+        background-color: transparent;
+        border-color: transparent;
+      }
+
+      @media screen and (max-width: 767px) {
+        border: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: 997px) {
+    display: none;
+  }
+}

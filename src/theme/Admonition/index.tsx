@@ -4,7 +4,7 @@ import { ThemeClassNames } from '@docusaurus/theme-common';
 import Translate from '@docusaurus/Translate';
 import type { Props } from '@theme/Admonition';
 
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 function NoteIcon() {
   return (
