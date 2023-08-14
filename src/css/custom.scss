@@ -162,16 +162,27 @@ main {
 }
 
 .linkedin-logo {
+  position: relative;
   height: 40px;
   width: 40px;
   margin-right: 12px;
   border: 1px solid #f8faf61a;
   border-radius: 50%;
-  content: url('/static/img/logo-linkedin.svg');
   transition: border 0.2s ease-out;
 
   &:hover {
     border-color: var(--border-2);
+  }
+
+  &::after {
+    content: url('/static/img/logo-linkedin.svg');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    height: 16px;
+    width: 16px;
   }
 
   @media screen and (min-width: 997px) {
@@ -180,26 +191,48 @@ main {
 }
 
 .instagram-logo {
+  position: relative;
   height: 40px;
   width: 40px;
   margin-right: 12px;
   border: 1px solid #f8faf61a;
   border-radius: 50%;
-  content: url('/static/img/logo-instagram.svg');
   transition: border 0.2s ease-out;
 
   &:hover {
     border-color: var(--border-2);
   }
+
+  &::after {
+    content: url('/static/img/logo-instagram.svg');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    height: 16px;
+    width: 16px;
+  }
 }
 
 .twitter-logo {
+  position: relative;
   height: 40px;
   width: 40px;
   border: 1px solid #f8faf61a;
   border-radius: 50%;
-  content: url('/static/img/logo-twitter.svg');
   transition: border 0.2s ease-out;
+
+  &::after {
+    content: url('/static/img/logo-twitter.svg');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    height: 16px;
+    width: 16px;
+  }
 
   &:hover {
     border-color: var(--border-2);
