@@ -25,6 +25,7 @@ const config = {
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  trailingSlash: false,
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -324,27 +325,7 @@ const config = {
             },
           ],
         },
-        {
-          type: 'category',
-          href: '/docs/tutorial',
-          label: 'Tutorial Intro',
-          collapsible: true,
-          collapsed: true,
-          items: [
-            {
-              type: 'link',
-              href: '/docs/tutorial/tutorial-extras',
-              label: 'Tutorial - Extras',
-            },
-            {
-              type: 'link',
-              href: '/docs/tutorial/tutorial-basics',
-              label: 'Tutorial - Basics',
-            },
-          ],
-        },
       ],
-
       footer: {
         logo: {
           alt: 'Blockjoy Logo',

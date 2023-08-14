@@ -1,6 +1,7 @@
 .menu {
   border-right: 1px solid var(--border-2);
   padding: 60px 20px !important;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -38,7 +39,7 @@
   }
 
   &--collapsed {
-    .menu__caret:before {
+    .menu__caret::before {
       transform: rotate(-45deg);
     }
   }
@@ -68,7 +69,7 @@
   border-bottom: 2px solid var(--ifm-color-primary);
 }
 
-.menu__caret:before {
+.menu__caret::before {
   background: transparent;
   border-right: 2px solid var(--icon-2);
   border-bottom: 2px solid var(--icon-2);
